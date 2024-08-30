@@ -1,5 +1,6 @@
 package br.itb.projeto.AKECY.model.entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -17,25 +18,51 @@ public class Usuario {
 	@Id
 	@GeneratedValue
 		(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long idUsuario;
 	private String nome;
 	private String email;
 	private String senha;
+	private String telefone;
+	private String cpf;
 	private String nivelAcesso;
-	private byte[] foto;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy hh:mm:ss")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	private LocalDate dataNasc;
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataCadastro;
 	private String statusUsuario;
 	// Source -> Generate Getters and Setters...
-	public long getId() {
-		return id;
+	
+	
+	public String getTelefone() {
+		return telefone;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public LocalDate getDataNasc() {
+		return dataNasc;
+	}
+	public void setDataNasc(LocalDate dataNasc) {
+		this.dataNasc = dataNasc;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	public String getNome() {
 		return nome;
+	}
+	public long getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
@@ -57,12 +84,6 @@ public class Usuario {
 	}
 	public void setNivelAcesso(String nivelAcesso) {
 		this.nivelAcesso = nivelAcesso;
-	}
-	public byte[] getFoto() {
-		return foto;
-	}
-	public void setFoto(byte[] foto) {
-		this.foto = foto;
 	}
 	public LocalDateTime getDataCadastro() {
 		return dataCadastro;

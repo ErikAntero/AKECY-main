@@ -65,12 +65,10 @@ public class UsuarioController {
 	@PostMapping("create")
 	public ResponseEntity<?> create(@RequestBody Usuario usuario) {
 
-		Usuario _usuario = usuarioService.createNew(usuario);
-		
-		System.out.println("_usuario " + _usuario);
+		Usuario _usuario = usuarioService.create (usuario);
 		
 		if (_usuario == null) {
-			System.out.println("_usuario 2" + _usuario);
+
 			return ResponseEntity.badRequest().body(
 					new MessageResponse("Usuário já cadastrado!"));
 		}
@@ -89,6 +87,7 @@ public class UsuarioController {
 		return ResponseEntity.badRequest().body("Dados incorretos!");
 	}
 	*/
+	
 	@PostMapping("/signin")
 	public ResponseEntity<?> signin(@RequestBody Usuario usuario) {
 
@@ -101,6 +100,7 @@ public class UsuarioController {
 
 		return ResponseEntity.ok(_usuario);
 	}
+	
 
 	@PutMapping("inativar/{id}")
 	public ResponseEntity<Usuario> inativar(@PathVariable long id) {

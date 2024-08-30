@@ -13,14 +13,15 @@ public class Categoria {
 	@Id
 	@GeneratedValue
 		(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long idCategoria;
 	private String nome;
 	
-	public long getId() {
-		return id;
+	
+	public long getIdCategoria() {
+		return idCategoria;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setIdCategoria(long idCategoria) {
+		this.idCategoria = idCategoria;
 	}
 	public String getNome() {
 		return nome;

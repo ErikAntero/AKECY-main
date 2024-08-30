@@ -61,4 +61,21 @@ public class ProdutoService {
 		}
 		return null;
 	}
+	
+	@Transactional
+	public Produto reativar(long id) {
+		Optional<Produto> _produto = 
+				produtoRepository.findById(id);
+		
+		if(_produto.isPresent()) {
+			Produto produtoAtualizado = _produto.get();
+			produtoAtualizado.setStatusProd("ATIVO");
+			
+			return produtoRepository.save(produtoAtualizado);
+		}
+		return null;
+	}
+	
+	
+	
 }

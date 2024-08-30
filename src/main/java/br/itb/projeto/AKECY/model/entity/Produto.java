@@ -16,7 +16,7 @@ public class Produto {
 	@Id
 	@GeneratedValue
 		(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long idProduto;
 	private String nome;
 	private String descricao;
 	private String codigoBarras;
@@ -30,12 +30,14 @@ public class Produto {
 	
 	private String statusProd;
 
-	public long getId() {
-		return id;
+	
+
+	public long getIdProduto() {
+		return idProduto;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setIdProduto(long idProduto) {
+		this.idProduto = idProduto;
 	}
 
 	public String getNome() {

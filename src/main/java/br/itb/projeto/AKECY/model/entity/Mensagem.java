@@ -17,7 +17,7 @@ public class Mensagem {
 	@Id
 	@GeneratedValue
 		(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long idMensagem;
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy hh:mm:ss")
 	private LocalDateTime dataMensagem;
@@ -27,11 +27,12 @@ public class Mensagem {
 	private String texto;
 	private String statusMensagem;
 	
-	public long getId() {
-		return id;
+	
+	public long getIdMensagem() {
+		return idMensagem;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setIdMensagem(long idMensagem) {
+		this.idMensagem = idMensagem;
 	}
 	public LocalDateTime getDataMensagem() {
 		return dataMensagem;

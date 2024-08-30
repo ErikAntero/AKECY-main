@@ -1,6 +1,7 @@
 package br.itb.projeto.AKECY.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -28,4 +29,16 @@ public class CategoriaService {
 		
 		return categoriaRepository.save(categoria);
 	}
+	
+	public Categoria findById(long id) {
+		
+		Optional<Categoria> categoria = categoriaRepository.findById(id);
+		
+		if(categoria.isPresent()) {
+			return categoria.get();
+		}
+	   
+		return null;	
+	}
+	
 }
